@@ -27,7 +27,7 @@ export const YearSelector = (props: Props) => {
             className.extend('control')
           ).value()}>
           {ctx.yearMinusLabel}
-      </button>
+        </button>
         <h2 className={className.extend('title').value}>
           {ctx.yearFormatter(props.model)}
         </h2>
@@ -38,7 +38,7 @@ export const YearSelector = (props: Props) => {
             className.extend('control')
           ).value()}>
           {ctx.yearPlusLabel}
-      </button>
+        </button>
       </div>
     </div>
   )
