@@ -4,6 +4,10 @@ import { Month, LocalDate, Year, DateTimeFormatter, DayOfWeek } from 'js-joda'
 interface DatepickerContext {
   confirmLabel: string
   cancelLabel: string
+
+  yearPlusLabel: React.ReactNode
+  yearMinusLabel: React.ReactNode
+
   titleFormatter: (x: string, y: LocalDate) => string
   yearFormatter: (x: Year) => React.ReactNode
   monthFormatter: (x: Month) => React.ReactNode
@@ -19,6 +23,10 @@ const dateFormatter = DateTimeFormatter.ofPattern('d.M.y')
 export const DatepickerContext = React.createContext<DatepickerContext>({
   confirmLabel: 'OK',
   cancelLabel: 'Cancel',
+
+  yearMinusLabel: '-',
+  yearPlusLabel: '+',
+
   titleFormatter: (x, y) => `${x} ${y.format(dateFormatter)}`,
   yearFormatter: x => x.value(),
   monthFormatter: x => x.name(),

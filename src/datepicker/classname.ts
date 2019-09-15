@@ -34,3 +34,5 @@ class BemGroup {
 }
 
 export const baseClassName = Bemified.of('datepicker')
+
+export const buttonClassName = baseClassName.extend('button')

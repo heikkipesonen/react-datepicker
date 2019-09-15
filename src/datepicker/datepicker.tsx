@@ -3,7 +3,7 @@ import { YearMonth, LocalDate, Year } from 'js-joda'
 
 import { Calendar } from './calendar'
 import { MonthSelector } from './month-selector'
-import { baseClassName } from './classname'
+import { baseClassName, buttonClassName } from './classname'
 import { YearSelector } from './year-selector'
 import { DatepickerContext } from './datepicker-context'
 
@@ -11,7 +11,6 @@ const className = baseClassName.extend('modal')
 const container = className.extend('container')
 const containerTitle = container.extend('titlecontainer')
 const containerControl = container.extend('controls')
-const containerControButton = containerControl.extend('button')
 
 interface PickerProps {
   title: string
@@ -26,11 +25,21 @@ export const DatePicker = (props: PickerProps) => {
   const yearMonth = YearMonth.of(state.year(), state.month())
   const ctx = React.useContext(DatepickerContext)
 
-  const setMonth = (m: YearMonth) => {
+  const setMonth = (x: YearMonth) => {
     setState(
       LocalDate.of(
         state.year(),
-        m.month(),
+        x.month(),
+        state.dayOfMonth()
+      )
+    )
+  }
+
+  const setYear = (x: Year) => {
+    setState(
+      LocalDate.of(
+        x.value(),
+        state.month(),
         state.dayOfMonth()
       )
     )
@@ -47,41 +56,44 @@ export const DatePicker = (props: PickerProps) => {
           <div className={containerTitle.extend('title').value}>
             {ctx.titleFormatter(props.title, state)}
           </div>
-          <YearSelector model={Year.of(yearMonth.year())} />
+          <YearSelector
+            onChange={setYear}
+            model={Year.of(yearMonth.year())}
+          />
         </div>
         <div className={container.extend('inner').value}>
-          <MonthSelector 
+          <MonthSelector
             yearMonth={yearMonth}
             onClick={setMonth}
           />
           <div className={className.extend('content').value}>
-            <Calendar 
-              model={state} 
+            <Calendar
+              model={state}
               onClick={setState}
-              />
+            />
           </div>
         </div>
         <div className={containerControl.value}>
           <button
             onClick={handleOnCancel}
             className={
-              containerControButton.join(
-                containerControButton.modify('cancel')
-                ).value()
+              buttonClassName.join(
+                containerControl.modify('cancel')
+              ).value()
             }
-            >
+          >
             {ctx.cancelLabel}
-            </button>
+          </button>
           <button
             onClick={handleOnComplete}
             className={
-              containerControButton.join(
-                containerControButton.modify('accept')
-                ).value()
+              buttonClassName.join(
+                containerControl.modify('accept')
+              ).value()
             }
-            >
+          >
             {ctx.confirmLabel}
-            </button>
+          </button>
         </div>
       </div>
     </div>

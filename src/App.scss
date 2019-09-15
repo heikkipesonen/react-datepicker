@@ -87,22 +87,11 @@ $datepicker-accept-button-bg: rgba(0, 0, 0, 0.1);
         align-items: center;
         border-top: $datepicker-border;
         margin-top: 32px;
-        background-color: $datepicker-modal-background;
+        background-color: $datepicker-modal-background;      
 
-
-        &-button {
-          color: $datepicker-text-color;
-          border: none;
+        &-button {          
           width: 128px;
-          border-radius: 5px;
-          background-color: $datepicker-button-bg;
-          padding: 16px;
-          margin-left: 16px;
-          margin-right: 16px;
-          text-transform: uppercase;
-          
-          outline: none;         
-          
+         
           &__accept {            
             background-color: $datepicker-accept-button-bg;
           }
@@ -142,6 +131,23 @@ $datepicker-accept-button-bg: rgba(0, 0, 0, 0.1);
           background-color: $datepicker-monthselector-item-selected-color;
         }
       }
+    }
+  }
+
+  &-button {
+    border-radius: 5px;
+    padding: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;     
+
+    color: $datepicker-text-color;
+    background-color: $datepicker-button-bg;
+
+    &::-moz-focus-inner {
+      border: 0;
     }
   }
 
