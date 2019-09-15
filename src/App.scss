@@ -1,0 +1,187 @@
+$datepicker-border: 1px solid rgba(0, 0, 0, 0.1) !default;
+$datepicker-border-color: rgba(0, 0, 0, 0.1) !default;
+$datepicker-container-bg:  rgba(0,0,0,0.025) !default;
+
+$datepicker-text-color:rgba(0, 0, 0, 0.7) !default;
+$datepicker-muted-text-color: rgba(0, 0, 0, 0.3) !default;
+
+$datepicker-cell-border: 1px solid rgba(0, 0, 0, 0.1) !default;
+$datepicker-modal-background: white !default;
+$datepicker-modal-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3) !default;
+
+$datepicker-item-hover-bg: rgba(0,0,0,0.1) !default;
+
+$datepicker-monthselector-item-border: 2px solid transparent !default;
+$datepicker-monthselector-item-selected-color: rgba(0,0,0,0.2) !default;
+$datepicker-calendar-item-selected-color: rgba(0,0,0,0.2) !default;
+
+$datepicker-button-bg: transparent !default;
+$datepicker-accept-button-bg: rgba(0, 0, 0, 0.1);
+
+.datepicker {
+  &-modal {
+    &-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-container {
+      color: $datepicker-text-color;
+      background-color: $datepicker-modal-background;
+      box-shadow: $datepicker-modal-shadow;
+      background-color: $datepicker-container-bg;      
+
+      &-inner {
+        display: flex;
+        flex-direction: row;
+      }
+
+      &-titlecontainer {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+        flex-direction: column;
+
+        background-color: $datepicker-modal-background;
+
+        border-bottom: $datepicker-border;
+        margin-bottom: 32px;
+        box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.05);
+    
+        &-title {
+          margin: 8px;
+        }
+    
+        &:before {
+          content: " ";
+          position: absolute;
+          bottom: -16px; left: 50%;
+          border-left: 16px solid transparent;
+          border-right: 16px solid transparent;
+          border-top: 16px solid $datepicker-border-color;
+          margin-left: -16px;
+        }
+    
+        &:after {
+          content: " ";
+          position: absolute;
+          bottom: -15px; left: 50%;
+          border-left: 16px solid transparent;
+          border-right: 16px solid transparent;
+          border-top: 16px solid $datepicker-modal-background;
+          margin-left: -16px;
+        }        
+      }
+
+      &-controls {
+        display: flex;
+        padding: 16px;
+        justify-content: center;
+        align-items: center;
+        border-top: $datepicker-border;
+        margin-top: 32px;
+        background-color: $datepicker-modal-background;
+
+
+        &-button {
+          color: $datepicker-text-color;
+          border: none;
+          width: 128px;
+          border-radius: 5px;
+          background-color: $datepicker-button-bg;
+          padding: 16px;
+          margin-left: 16px;
+          margin-right: 16px;
+          text-transform: uppercase;
+          
+          outline: none;         
+          
+          &__accept {            
+            background-color: $datepicker-accept-button-bg;
+          }
+        }
+      }      
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &-yearselector {
+    &-label {
+      color: $datepicker-text-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &-monthselector {
+    width: 200px;
+
+    &-list {
+      &-item {
+        cursor: pointer;
+        padding: 8px;
+        border-bottom: $datepicker-monthselector-item-border;
+
+        &:hover {
+          background-color: $datepicker-item-hover-bg;
+        }
+
+        &__selected {
+          background-color: $datepicker-monthselector-item-selected-color;
+        }
+      }
+    }
+  }
+
+  &-calendar {
+    width: 100%;
+
+    &-header {
+      &-item {
+        color: $datepicker-muted-text-color;
+        font-weight: normal;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+    }
+
+    &-week {
+      &-day {
+        cursor: pointer;
+        border-radius: 50%;
+        width: 52px;
+        height: 52px;
+        text-align: center;
+        vertical-align: middle;       
+
+        &:hover {
+          background-color: $datepicker-item-hover-bg;
+        }
+
+        &__disabled {
+          cursor: default;
+          border-color: transparent;
+          &:hover {
+            background-color: transparent;
+          }  
+        }
+
+        &__selected {
+          background-color: $datepicker-calendar-item-selected-color;
+        }
+      }
+    }
+  }
+}
