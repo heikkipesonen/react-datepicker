@@ -27,11 +27,11 @@ export const Calendar = (props: Props) => {
   const handleClick = (d: LocalDate | false) => () => d && props.onClick(d)
 
   return (
-    <table className={className.value}>
+    <table data-test-id="calendar" className={className.value}>
       <thead>
-        <tr className={headingClassName.value}>
+        <tr data-test-id="heading" className={headingClassName.value}>
           {headings.map(x => (
-            <th key={x.name()} className={headingClassName.extend('item').value}>
+            <th data-test-id="heading-cell" key={x.name()} className={headingClassName.extend('item').value}>
               {ctx.weekDayFormatter(x)}
             </th>
           ))}
@@ -39,9 +39,10 @@ export const Calendar = (props: Props) => {
       </thead>
       <tbody>
       {cal.map((week, index) => (
-        <tr key={index} className={weekClassName.value}>
+        <tr data-test-id="value-row" key={index} className={weekClassName.value}>
           {week.map((x, dindex) => (
             <td 
+              data-test-id="value-cell"
               onClick={handleClick(x)}
               key={dindex} 
               className={classNames(

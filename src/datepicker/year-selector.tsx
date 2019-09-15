@@ -18,9 +18,10 @@ export const YearSelector = (props: Props) => {
   )
   
   return (
-    <div className={className.value}>
+    <div data-test-id="year-selector" className={className.value}>
       <div className={labelClassName.value}>
         <button
+          data-test-id="btn-subtract"
           onClick={hanldeChange(-1)}
           className={buttonClassName.join(
             className.extend('control')
@@ -31,6 +32,7 @@ export const YearSelector = (props: Props) => {
           {ctx.yearFormatter(props.model)}
         </h2>
         <button
+          data-test-id="btn-add"
           onClick={hanldeChange(1)}
           className={buttonClassName.join(
             className.extend('control')

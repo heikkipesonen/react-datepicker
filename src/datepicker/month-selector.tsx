@@ -9,7 +9,7 @@ const monthList = Array(12).fill(false).map((_, i) => Month.of(i + 1))
 
 interface Props {
   yearMonth: YearMonth
-  onClick: (d: YearMonth) => void  
+  onClick: (d: YearMonth) => void
 }
 
 const className = baseClassName.extend('monthselector')
@@ -21,18 +21,20 @@ export const MonthSelector = (props: Props) => {
   const ctx = React.useContext(DatepickerContext)
 
   return (
-    <div className={className.value}>
+    <div data-test-id="month-selector" className={className.value}>
       <div className={listClassName.value}>
         {monthList.map(x => (
-          <div className={classNames(
-            listItemClassName
-              .value,
-            {
-              [listItemClassName
-                .modify('selected')
-                .value]: x.value() === props.yearMonth.monthValue()
-            }
-          )}
+          <div
+            data-test-id="month-list-item"
+            className={classNames(
+              listItemClassName
+                .value,
+              {
+                [listItemClassName
+                  .modify('selected')
+                  .value]: x.value() === props.yearMonth.monthValue()
+              }
+            )}
             key={x.name()}
             onClick={hanldeClick(x)}
           >

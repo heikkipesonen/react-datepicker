@@ -50,10 +50,10 @@ export const DatePicker = (props: PickerProps) => {
   const handleOnCancel = () => props.onCancel()
 
   return (
-    <div className={className.extend('wrapper').value} onClick={handleOnCancel}>
-      <div className={container.value} onClick={stopPropagation}>
+    <div data-test-id="datepicker-wrapper" className={className.extend('wrapper').value} onClick={handleOnCancel}>
+      <div data-test-id="datepicker-body" className={container.value} onClick={stopPropagation}>
         <div className={containerTitle.value}>
-          <div className={containerTitle.extend('title').value}>
+          <div data-test-id="title" className={containerTitle.extend('title').value}>
             {ctx.titleFormatter(props.title, state)}
           </div>
           <YearSelector
@@ -75,6 +75,7 @@ export const DatePicker = (props: PickerProps) => {
         </div>
         <div className={containerControl.value}>
           <button
+            data-test-id="btn-cancel"
             onClick={handleOnCancel}
             className={
               buttonClassName.join(
@@ -85,6 +86,7 @@ export const DatePicker = (props: PickerProps) => {
             {ctx.cancelLabel}
           </button>
           <button
+            data-test-id="btn-ok"
             onClick={handleOnComplete}
             className={
               buttonClassName.join(

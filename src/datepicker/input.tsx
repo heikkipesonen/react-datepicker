@@ -39,6 +39,7 @@ export const DatepickerInput = (props: Props) => {
   return (
     <>
       <input
+        data-test-id="datepicker-input"
         type="text"
         className={className.value}
         onFocus={handleFocus}
