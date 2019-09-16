@@ -6,28 +6,28 @@
   ],
   "private": false,
   "dependencies": {
-    "@types/classnames": "^2.2.9",
-    "@types/styled-components": "^4.1.19",
-    "classnames": "^2.2.6",
-    "immer": "^4.0.0",
-    "styled-components": "^4.3.2"
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.9",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.2",
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
+    "@types/styled-components": "^4.1.19",
+    "fp-ts": "^2.0.5",
+    "js-joda": "^1.11.0",
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
-    "typescript": "3.5.3",
-    "js-joda": "^1.11.0"
+    "typescript": "3.5.3"
   },
   "peerDependencies": {
+    "fp-ts": "^2.0.5",
+    "js-joda": "^1.11.0",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "js-joda": "^1.11.0"
+    "react-dom": "^16.9.0"
   },
   "scripts": {
     "start": "react-scripts start",
