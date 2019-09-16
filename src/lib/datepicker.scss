@@ -7,7 +7,8 @@ $datepicker-muted-text-color: rgba(0, 0, 0, 0.3) !default;
 
 $datepicker-cell-border: 1px solid rgba(0, 0, 0, 0.1) !default;
 $datepicker-modal-background: white !default;
-$datepicker-modal-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3) !default;
+$datepicker-modal-shadow: 0px 0px 60px -20px rgba(0, 0, 0, 0.3) !default;
+$datepicker-modal-border: 1px solid rgba(0,0,0,0.1);
 
 $datepicker-item-hover-bg: rgba(0,0,0,0.1) !default;
 
@@ -16,7 +17,15 @@ $datepicker-monthselector-item-selected-color: rgba(0,0,0,0.2) !default;
 $datepicker-calendar-item-selected-color: rgba(0,0,0,0.2) !default;
 
 $datepicker-button-bg: transparent !default;
-$datepicker-accept-button-bg: rgba(0, 0, 0, 0.1);
+$datepicker-accept-button-bg: rgba(0, 0, 0, 0.1) !default;
+
+$datepicker-title-shadown: 0px 10px 20px -10px rgba(0,0,0,0.05) !default;
+$datepicker-title-arrow-size: 16px !default;
+$datepicker-controls-margin: 32px 0 0 0 !default;
+$datepicker-controls-padding: 16px !default;
+$datepicker-controls-button-width: 128px !default;
+
+$datepicker-monthselector-width: 200px !default;
 
 .datepicker {
   &-modal {
@@ -35,7 +44,8 @@ $datepicker-accept-button-bg: rgba(0, 0, 0, 0.1);
       color: $datepicker-text-color;
       background-color: $datepicker-modal-background;
       box-shadow: $datepicker-modal-shadow;
-      background-color: $datepicker-container-bg;      
+      background-color: $datepicker-container-bg;   
+      border: $datepicker-modal-border;   
 
       &-inner {
         display: flex;
@@ -53,7 +63,7 @@ $datepicker-accept-button-bg: rgba(0, 0, 0, 0.1);
 
         border-bottom: $datepicker-border;
         margin-bottom: 32px;
-        box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.05);
+        box-shadow: $datepicker-title-shadown;
     
         &-title {
           margin: 8px;
@@ -62,35 +72,35 @@ $datepicker-accept-button-bg: rgba(0, 0, 0, 0.1);
         &:before {
           content: " ";
           position: absolute;
-          bottom: -16px; left: 50%;
-          border-left: 16px solid transparent;
-          border-right: 16px solid transparent;
-          border-top: 16px solid $datepicker-border-color;
-          margin-left: -16px;
+          bottom: -$datepicker-title-arrow-size; left: 50%;
+          border-left: $datepicker-title-arrow-size solid transparent;
+          border-right: $datepicker-title-arrow-size solid transparent;
+          border-top: $datepicker-title-arrow-size solid $datepicker-border-color;
+          margin-left: -$datepicker-title-arrow-size;
         }
     
         &:after {
           content: " ";
           position: absolute;
-          bottom: -15px; left: 50%;
-          border-left: 16px solid transparent;
-          border-right: 16px solid transparent;
-          border-top: 16px solid $datepicker-modal-background;
-          margin-left: -16px;
+          bottom: -($datepicker-title-arrow-size - 1px); left: 50%;
+          border-left: $datepicker-title-arrow-size solid transparent;
+          border-right: $datepicker-title-arrow-size solid transparent;
+          border-top: $datepicker-title-arrow-size solid $datepicker-modal-background;
+          margin-left: -$datepicker-title-arrow-size;
         }        
       }
 
       &-controls {
         display: flex;
-        padding: 16px;
+        padding: $datepicker-controls-padding;
         justify-content: center;
         align-items: center;
         border-top: $datepicker-border;
-        margin-top: 32px;
+        margin: $datepicker-controls-margin;
         background-color: $datepicker-modal-background;      
 
         &-button {          
-          width: 128px;
+          width: $datepicker-controls-button-width;
          
           &__accept {            
             background-color: $datepicker-accept-button-bg;
@@ -115,7 +125,7 @@ $datepicker-accept-button-bg: rgba(0, 0, 0, 0.1);
   }
 
   &-monthselector {
-    width: 200px;
+    width: $datepicker-monthselector-width;
 
     &-list {
       &-item {
@@ -169,8 +179,9 @@ $datepicker-accept-button-bg: rgba(0, 0, 0, 0.1);
         border-radius: 50%;
         width: 52px;
         height: 52px;
-        text-align: center;
+        line-height: 52px;        
         vertical-align: middle;       
+        text-align: center;
 
         &:hover {
           background-color: $datepicker-item-hover-bg;

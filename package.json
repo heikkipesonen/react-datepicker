@@ -35,7 +35,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "clean:build": "rimraf lib/",
-    "build:lib": "yarn clean:build && tsc -p tsconfig.build.json"
+    "build:scss": "node-sass ./src/lib/*.scss ./lib/datepicker.css",
+    "copy:scss": "cp ./src/lib/*.scss ./lib",
+    "build:lib": "yarn clean:build && yarn build:scss && yarn copy:scss && tsc -p tsconfig.build.json"
   },
   "eslintConfig": {
     "extends": "react-app"
