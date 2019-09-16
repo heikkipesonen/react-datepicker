@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Month, LocalDate, Year, DateTimeFormatter, DayOfWeek } from 'js-joda'
 
-interface DatepickerContext {
+export interface DatepickerContext {
   confirmLabel: string
   cancelLabel: string
 
@@ -16,21 +16,24 @@ interface DatepickerContext {
   dateFormatter: (x: LocalDate) => string
 }
 
-const monthDateFormatter = DateTimeFormatter.ofPattern('d')
-const dateFormatter = DateTimeFormatter.ofPattern('d.M.y')
-
-
-export const DatepickerContext = React.createContext<DatepickerContext>({
+export const defaultConfig: DatepickerContext = {
   confirmLabel: 'OK',
   cancelLabel: 'Cancel',
 
   yearMinusLabel: '-',
   yearPlusLabel: '+',
 
-  titleFormatter: (x, y) => `${x} ${y.format(dateFormatter)}`,
+  titleFormatter: (x, y) => `${x} ${y.format(DateTimeFormatter.ofPattern('d.M.y'))}`,
   yearFormatter: x => x.value(),
   monthFormatter: x => x.name(),
-  monthDayFormatter: x => x ? monthDateFormatter.format(x) : '',
+  monthDayFormatter: x => x ? DateTimeFormatter.ofPattern('d').format(x) : '',
   weekDayFormatter: x => x.name().slice(0, 3),
-  dateFormatter: x => x.format(dateFormatter)
+  dateFormatter: x => x.format(DateTimeFormatter.ofPattern('d.M.y'))
+}
+
+export const setConfig = (x: Partial<DatepickerContext>): DatepickerContext => ({
+  ...defaultConfig,
+  ...x
 })
+
+export const DatepickerContext = React.createContext<DatepickerContext>({...defaultConfig})
