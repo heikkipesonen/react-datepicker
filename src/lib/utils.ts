@@ -1,16 +1,18 @@
+import * as O from 'fp-ts/lib/Option'
 import {  LocalDate, YearMonth } from 'js-joda'
 
-const createWeek = () => Array(7).fill(false)
+const createWeek = (): CalendarDateType[] => Array(7).fill(O.none)
 
 const getLastEntry = <T extends Array<any>>(m: T) => m[m.length - 1]
 
-type WeekArrayType = Array<Array<LocalDate | false>>
+export type CalendarDateType = O.Option<LocalDate>
+export type WeekArrayType = Array<Array<CalendarDateType>>
 
-const setToMonth = (m: WeekArrayType, d: LocalDate) => {  
-  const w = getLastEntry(m)
+const setToMonth = (m: WeekArrayType, d: LocalDate): WeekArrayType => {  
+  const w = getLastEntry(m)  
   const wd = d.dayOfWeek()
   
-  w[wd.value() - 1] = d
+  w[wd.value() - 1] = O.some(d)
 
   if (wd.value() === 7) {
     m.push(createWeek())    
@@ -21,7 +23,11 @@ const setToMonth = (m: WeekArrayType, d: LocalDate) => {
 
 export const generateMonthCal = (m: YearMonth) => {  
   const days = m.lengthOfMonth()
-  const cal = new Array(days).fill(false).map((_, i) => LocalDate.of(m.year(), m.month(), i + 1))  
+  
+  const cal: LocalDate[] = new Array(days)
+  .fill(false)
+  .map((_, i) => LocalDate.of(m.year(), m.month(), i + 1))
+
   const monthCal: WeekArrayType = [createWeek()]
   
   cal.forEach(x => {

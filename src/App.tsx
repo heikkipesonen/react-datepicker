@@ -7,6 +7,7 @@ import { DatepickerInput, DatepickerContext, setConfig } from './lib'
 
 const App: React.FC = () => {
   const [state, setState] = React.useState<LocalDate>(LocalDate.now())
+  const [stateNull, setStateNull] = React.useState<LocalDate | null>(null)
 
   return (
     <DatepickerContext.Provider value={setConfig({
@@ -18,6 +19,11 @@ const App: React.FC = () => {
         onChange={setState}
         value={state}
       />
+      <DatepickerInput 
+        name={'datepicker-input'}
+        onChange={setStateNull}
+        value={stateNull}
+      />      
     </DatepickerContext.Provider>
   );
 }

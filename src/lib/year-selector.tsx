@@ -13,9 +13,7 @@ const labelClassName = className.extend('label')
 
 export const YearSelector = (props: Props) => {
   const ctx = React.useContext(DatepickerContext)
-  const hanldeChange = (x: number) => () => props.onChange(
-    Year.of(props.model.value() + x)
-  )
+  const hanldeChange = (x: number) => () => props.onChange(Year.of(x))
   
   return (
     <div data-test-id="year-selector" className={className.value}>

@@ -1,6 +1,9 @@
 import * as React from 'react'
 import { YearMonth, LocalDate, Year } from 'js-joda'
 
+import * as O from 'fp-ts/lib/Option'
+import { pipe } from 'fp-ts/lib/pipeable'
+
 import { Calendar } from './calendar'
 import { MonthSelector } from './month-selector'
 import { baseClassName, buttonClassName } from './classname'
@@ -14,18 +17,27 @@ const containerControl = container.extend('controls')
 
 interface PickerProps {
   title: string
-  model: LocalDate
+  model: LocalDate | null
   onComplete: (x: LocalDate) => void
   onCancel: () => void
 }
 
 
 export const DatePicker = (props: PickerProps) => {
-  const [state, setState] = React.useState<LocalDate>(props.model)
+  const [state, setState] = React.useState<LocalDate>(
+    pipe(
+      O.fromNullable(
+        props.model
+      ),
+      O.getOrElse(() => LocalDate.now())
+    )
+
+  )
+
   const yearMonth = YearMonth.of(state.year(), state.month())
   const ctx = React.useContext(DatepickerContext)
 
-  const setMonth = (x: YearMonth) => {
+  const setMonth = (x: YearMonth) =>
     setState(
       LocalDate.of(
         state.year(),
@@ -33,9 +45,8 @@ export const DatePicker = (props: PickerProps) => {
         state.dayOfMonth()
       )
     )
-  }
 
-  const setYear = (x: Year) => {
+  const setYear = (x: Year) =>
     setState(
       LocalDate.of(
         x.value(),
@@ -43,7 +54,6 @@ export const DatePicker = (props: PickerProps) => {
         state.dayOfMonth()
       )
     )
-  }
 
   const stopPropagation = (e: React.MouseEvent) => e.stopPropagation()
   const handleOnComplete = () => props.onComplete(state)

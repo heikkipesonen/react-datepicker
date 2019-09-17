@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { baseClassName } from './classname'
-import { LocalDate } from 'js-joda';
-import { DatePicker } from './datepicker';
-import { DatepickerContext } from './datepicker-context';
+import { LocalDate } from 'js-joda'
+import { DatePicker } from './datepicker'
+import { DatepickerContext } from './datepicker-context'
 
 const className = baseClassName.extend('input')
 
@@ -10,7 +10,7 @@ interface Props {
   name: string
   onChange: (x: LocalDate) => void
 
-  value: LocalDate 
+  value: LocalDate | null
 }
 
 export const DatepickerInput = (props: Props) => {
@@ -36,6 +36,10 @@ export const DatepickerInput = (props: Props) => {
     handleBlur()
   }
 
+  const handleInputChange = () => {
+    // do nothing
+  }
+
   return (
     <>
       <input
@@ -43,8 +47,9 @@ export const DatepickerInput = (props: Props) => {
         type="text"
         className={className.value}
         onFocus={handleFocus}
-        value={ctx.dateFormatter(props.value)}
-      />
+        value={ctx.inputValueFormatter(props.value)}
+        onChange={handleInputChange}
+      />      
       {focused && (
         <DatePicker
           title={props.name}
