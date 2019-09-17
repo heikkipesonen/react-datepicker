@@ -1,7 +1,9 @@
 import * as React from 'react'
 import classNames from 'classnames'
-import * as C from './utils'
+import { pipe } from 'fp-ts/lib/pipeable'
+import * as O from 'fp-ts/lib/Option'
 
+import * as C from './utils'
 import { YearMonth, DayOfWeek, LocalDate} from 'js-joda'
 import { baseClassName } from './classname'
 import { DatepickerContext } from './datepicker-context'
@@ -24,7 +26,7 @@ export const Calendar = (props: Props) => {
     YearMonth.of(props.model.year(), props.model.month())
   )
   
-  const handleClick = (d: LocalDate | false) => () => d && props.onClick(d)
+  const handleClick = (d: LocalDate) => () => props.onClick(d)
 
   return (
     <table data-test-id="calendar" className={className.value}>
@@ -40,7 +42,9 @@ export const Calendar = (props: Props) => {
       <tbody>
       {cal.map((week, index) => (
         <tr data-test-id="value-row" key={index} className={weekClassName.value}>
-          {week.map((x, dindex) => (
+          {week.map((d, dindex) => pipe(
+            d,
+            O.map(x => (
             <td 
               data-test-id="value-cell"
               onClick={handleClick(x)}
@@ -48,14 +52,25 @@ export const Calendar = (props: Props) => {
               className={classNames(
                 dayClassName.value,
                 {
-                  [dayClassName.modify('disabled').value]: x === false,
-                  [dayClassName.modify('selected').value]: x && x.equals(props.model)
+                  [dayClassName.modify('selected').value]: x.equals(props.model)
                 }                
               )}
             >
               {ctx.monthDayFormatter(x)}
             </td>
-          ))}
+          )),
+          O.getOrElse(() => (
+              <td 
+                data-test-id="value-cell"
+                key={dindex} 
+                className={classNames(
+                  dayClassName.value,
+                  dayClassName.modify('disabled').value,
+                )}
+              >
+                {ctx.monthDayFormatter(null)}
+              </td>            
+          ))))}
         </tr>
       ))}
       </tbody>
