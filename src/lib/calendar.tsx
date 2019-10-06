@@ -27,7 +27,7 @@ export const Calendar = (props: Props) => {
   )
   
   const handleClick = (d: LocalDate) => () => props.onClick(d)
-
+  
   return (
     <table data-test-id="calendar" className={className.value}>
       <thead>
