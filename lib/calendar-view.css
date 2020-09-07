@@ -1,0 +1,26 @@
+
+.datepicker__container .calendar__container {
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.datepicker__container .calendar__day {
+  border: none;
+  height: 42px;
+  width: 42px;
+  text-align: center;
+  cursor: pointer;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.datepicker__container .calendar__day:hover {
+  background-color: #eee;
+}
+.datepicker__container .calendar__day--selected {
+  background-color: #ddd;
+}
+.datepicker__container .calendar__days__title {
+  height: 42px;
+  width: 42px;
+  text-align: center;
+}
