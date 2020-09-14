@@ -1,26 +1,46 @@
+.datepicker__container {
+  .calendar__container {
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
 
-.datepicker__container .calendar__container {
-  table-layout: fixed;
-  border-collapse: collapse;
-}
+  .calendar__week, .calendar__days {
+    flex-direction: row;
+    display: flex;
+  }
 
-.datepicker__container .calendar__day {
-  border: none;
-  height: 42px;
-  width: 42px;
-  text-align: center;
-  cursor: pointer;
-  vertical-align: middle;
-  border-radius: 50%;
-}
-.datepicker__container .calendar__day:hover {
-  background-color: #eee;
-}
-.datepicker__container .calendar__day--selected {
-  background-color: #ddd;
-}
-.datepicker__container .calendar__days__title {
-  height: 42px;
-  width: 42px;
-  text-align: center;
+  .calendar__days {
+    &__title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-weight: bolder;
+    }
+  }
+
+  .calendar__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    height: 42px;
+    width: 42px;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 50%;
+  }
+  .calendar__day:hover {
+    background-color: #eee;
+  }
+  .calendar__day--selected {
+    background-color: #ddd;
+  }
+  .calendar__days__title {
+    height: 42px;
+    width: 42px;
+    text-align: center;
+  }
 }

@@ -2,7 +2,20 @@
   table-layout: fixed;
   border-collapse: collapse; }
 
+.datepicker__container .calendar__week, .datepicker__container .calendar__days {
+  flex-direction: row;
+  display: flex; }
+
+.datepicker__container .calendar__days__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder; }
+
 .datepicker__container .calendar__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   height: 42px;
   width: 42px;
