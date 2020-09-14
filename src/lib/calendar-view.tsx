@@ -33,36 +33,34 @@ export const Calendar: React.FC<Props> = (p) => {
   }
 
   return (
-    <table className="calendar__container">
-      <thead>
-        <tr className="calendar__days" data-test-id="calendar__days">
+    <div className="calendar__container">
+        <div className="calendar__days" data-test-id="calendar__days">
           {weekdayTitles.map(x => (
-            <th className="calendar__days__title" key={x} data-test-id={`calendar__days__title--${cfg.formatWeekday(x)}`}>
+            <div className="calendar__days__title" key={x} data-test-id={`calendar__days__title--${cfg.formatWeekday(x)}`}>
               {cfg.formatWeekday(x)}
-            </th>
+            </div>
           ))}
-        </tr>
-      </thead>
-      <tbody data-test-id="calendar__body">
+        </div>
+      <div data-test-id="calendar__body">
         {viewModel.map((week, weekIndex) => (
-          <tr
+          <div
             className={`calendar__week`}
             key={weekIndex}
             data-test-id="calendar__week"
           >
             {week.map((maybeDate, dayIndex) => (
-              <td
+              <div
                 className={`calendar__day${isEqual(maybeDate, p.value) ? ' calendar__day--selected' : ''}`}
                 key={dayIndex}
                 onClick={handleClick(maybeDate)}
                 data-test-id={`calendar__day--${formatDate(maybeDate)}`}
               >
                 {formatDate(maybeDate)}
-              </td>
+              </div>
             ))}
-          </tr>
+          </div>
         ))}
-      </tbody>
-    </table>
+      </div>
+    </div>
   )
 }
