@@ -7,7 +7,7 @@ import './date-input.scss'
 
 // const parseValue = (formatter: DateTimeFormatter) => (x: string) => O.fromNullable(LocalDate.parse(x, formatter))
 interface DateInputProps{
-  value: LocalDate
+  value: LocalDate | null
   onChange: (x: LocalDate) => void
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void

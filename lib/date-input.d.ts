@@ -2,7 +2,7 @@ import * as React from 'react';
 import { LocalDate } from 'js-joda';
 import './date-input.scss';
 interface DateInputProps {
-    value: LocalDate;
+    value: LocalDate | null;
     onChange: (x: LocalDate) => void;
     onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
     onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
