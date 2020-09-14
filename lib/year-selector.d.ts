@@ -1,6 +1,6 @@
 import { LocalDate } from 'js-joda';
 import * as React from 'react';
-import './year-selector.css';
+import './year-selector.scss';
 interface Props {
     value: LocalDate;
     onChange: (x: LocalDate) => void;

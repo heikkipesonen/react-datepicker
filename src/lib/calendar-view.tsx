@@ -1,11 +1,11 @@
 import { LocalDate, YearMonth } from 'js-joda'
 import * as React from 'react'
+import { pipe } from 'fp-ts/lib/pipeable'
 import * as O from 'fp-ts/lib/Option'
 
 import { getCalendar } from './calendar'
-import './calendar-view.css'
-import { pipe } from 'fp-ts/lib/pipeable'
 import { useDatePickerConfig } from './datepicker-config'
+import './calendar-view.scss'
 
 interface Props {
   value: LocalDate

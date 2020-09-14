@@ -1,5 +1,5 @@
 import * as React from 'react'
-import './overlay.css'
+import './overlay.scss'
 
 interface Props {
   onClick: () => void

@@ -1,6 +1,6 @@
 import { LocalDate } from 'js-joda';
 import * as React from 'react';
-import './datepicker.css';
+import './datepicker.scss';
 interface Props {
     onClose: () => void;
     onChange: (x: LocalDate) => void;

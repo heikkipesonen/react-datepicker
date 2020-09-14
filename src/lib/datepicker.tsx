@@ -4,7 +4,7 @@ import * as React from 'react'
 import { Calendar } from './calendar-view'
 import { MonthSelector } from './month-selector'
 
-import './datepicker.css'
+import './datepicker.scss'
 import { YearSelector } from './year-selector'
 import { DatePickerOverlay } from './overlay'
 import { useDatePickerConfig } from './datepicker-config'

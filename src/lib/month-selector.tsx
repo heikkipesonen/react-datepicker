@@ -2,7 +2,7 @@ import { LocalDate } from 'js-joda'
 import * as React from 'react'
 import { useDatePickerConfig } from './datepicker-config'
 
-import './month-selector.css'
+import './month-selector.scss'
 
 interface Props {
   value: LocalDate

@@ -3,6 +3,8 @@ import { LocalDate } from 'js-joda'
 import { DatePicker } from './datepicker'
 import { useDatePickerConfig } from './datepicker-config'
 
+import './date-input.scss'
+
 // const parseValue = (formatter: DateTimeFormatter) => (x: string) => O.fromNullable(LocalDate.parse(x, formatter))
 interface DateInputProps{
   value: LocalDate

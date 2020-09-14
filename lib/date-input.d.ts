@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { LocalDate } from 'js-joda';
+import './date-input.scss';
 interface DateInputProps {
     value: LocalDate;
     onChange: (x: LocalDate) => void;
