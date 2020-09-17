@@ -1,28 +1,23 @@
 # oh wow, picker of much dates
 
-![OH WOW](./doge.png)
+### A datepicker that does not have features!
 
-a datepicker that does not suck (most of the time) for react. uses js-joda for date models.
+- why?
+because all other datepickers are written with fukken cobol and php with a touch of jquery wrapped within react container and offer a features ranging from selecting space ships to drawing furries...
+- datepicker should only pick some dates
 
-## running locally
-```
-> yarn
-> yarn start
-```
+![OH WOW](./img.png)
 
-## building lib
-```
-> yarn
-> yarn build:lib
-```
+Uses `js-joda` for date models, because it fokken works. want js Dates? - do it yourself, use some state, some imagination and covert, whos gonna stop you...
 
-## much typescript
+- Takes in a `LocalDate | null`, Outputs `LocalDate | null` how extraordinarily revolutional is that?
+- One job, and one job only, select dates, how hard is that?
+- Formatting only by js-joda `DateTimeFormatter`, only used for input display value read/write
+- `valueFormatter` is the input value formatter and parser
 
-written in typescript. almost.
+## Such usage, oh wow
 
-## such usage, oh wow
-
-```javascript
+```tsx
 import React, { useState } from 'react'
 
 import { LocalDate } from 'js-joda'
@@ -54,5 +49,26 @@ export function App() {
     </datePickerConfig.Provider>
   )
 }
+```
 
-  ```
+## FAQ
+- why only hoc
+  - do input yourself, maybe use whatever you please
+- why does it look like sh...?
+  - comrade do css self, nyet my problem. only minimal style provided.
+
+## running locally
+```
+> yarn
+> yarn start
+```
+
+## building lib
+```
+> yarn
+> yarn build:lib
+```
+
+## much typescript
+
+written in typescript. almost.
