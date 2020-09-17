@@ -1,15 +1,15 @@
 import { DateTimeFormatter, LocalDate } from 'js-joda'
 import React, { useState } from 'react'
-import { DateInput } from './lib/date-input'
+import { WithDatepicker } from './lib'
 import { datePickerConfig } from './lib/datepicker-config'
 
 export function App() {
-  const [state, setState] = useState(LocalDate.now())
-
+  const [state, setState] = useState<LocalDate | null>(LocalDate.now())
   return (
     <datePickerConfig.Provider value={{}}>
-      {state.format(DateTimeFormatter.ofPattern('dd.MM.yyyy'))}
-      <DateInput value={state} onChange={setState} />
+      <WithDatepicker value={state} onChange={setState} >
+      {input => <input {...input} />}
+      </WithDatepicker>
     </datePickerConfig.Provider>
   )
 }
