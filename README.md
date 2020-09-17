@@ -23,17 +23,36 @@ written in typescript. almost.
 ## such usage, oh wow
 
 ```javascript
-import { DateInput } from './lib/date-input'
+import React, { useState } from 'react'
+
+import { LocalDate } from 'js-joda'
+import { WithDatepicker } from './lib'
 import { datePickerConfig } from './lib/datepicker-config'
 
 export function App() {
-  const [state, setState] = useState(LocalDate.now())
-
+  const [state, setState] = useState<LocalDate | null>(LocalDate.now())
   return (
-    <datePickerConfig.Provider value={{}}>
-      {state.format(DateTimeFormatter.ofPattern('dd.MM.yyyy'))}
-      <DateInput value={state} onChange={setState} />
+    <datePickerConfig.Provider value={{
+      valueFormatter: DateTimeFormatter,
+      formatWeekday: (value: number) => React.ReactNode
+      formatMonth: (value: LocalDate) => React.ReactNode
+      formatYear: (value: LocalDate) => React.ReactNode
+      formatDay: (value: LocalDate) => React.ReactNode
+
+      monthSelectPrevBtnLabel: (value: LocalDate) => React.ReactNode
+      monthSelectNextBtnLabel: (value: LocalDate) => React.ReactNode
+
+      yearSelectPrevBtnLabel: (value: LocalDate) => React.ReactNode
+      yearSelectNextBtnLabel: (value: LocalDate) => React.ReactNode
+
+
+      closeAfterClick: boolean
+    }}>
+      <WithDatepicker value={state} onChange={setState} >
+      {input => <input {...input} />}
+      </WithDatepicker>
     </datePickerConfig.Provider>
   )
 }
+
   ```
