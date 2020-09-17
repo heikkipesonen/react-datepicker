@@ -78,6 +78,54 @@ describe('with datepicker', () => {
     expect(view.isDatepickerOpen()).toBeFalsy()
   })
 
+  test('select month', () => {
+    const onChange = jest.fn()
+    const model = LocalDate.now().withDayOfMonth(1)
+
+    const view = PG.Datepicker.from(render(
+      <WithDatepicker value={model} onChange={onChange}>
+        {field => <input data-testid="field" {...field} />}
+      </WithDatepicker>
+    ))
+
+    view.focusInput()
+    view.nextMonth()
+    expect(onChange).toHaveBeenCalledWith(model.plusMonths(1))
+    expect(view.isDatepickerOpen()).toBeTruthy()
+
+    view.prevMonth()
+    expect(onChange).toHaveBeenCalledWith(model)
+    expect(view.isDatepickerOpen()).toBeTruthy()
+
+    view.prevMonth()
+    expect(onChange).toHaveBeenCalledWith(model.plusMonths(-1))
+    expect(view.isDatepickerOpen()).toBeTruthy()
+  })
+
+  test('select year', () => {
+    const onChange = jest.fn()
+    const model = LocalDate.now().withDayOfMonth(1)
+
+    const view = PG.Datepicker.from(render(
+      <WithDatepicker value={model} onChange={onChange}>
+        {field => <input data-testid="field" {...field} />}
+      </WithDatepicker>
+    ))
+
+    view.focusInput()
+    view.nextYear()
+    expect(onChange).toHaveBeenCalledWith(model.plusYears(1))
+    expect(view.isDatepickerOpen()).toBeTruthy()
+
+    view.prevYear()
+    expect(onChange).toHaveBeenCalledWith(model)
+    expect(view.isDatepickerOpen()).toBeTruthy()
+
+    view.prevYear()
+    expect(onChange).toHaveBeenCalledWith(model.plusYears(-1))
+    expect(view.isDatepickerOpen()).toBeTruthy()
+  })
+
   describe('typing into input', () => {
     test('valid', async () => {
       const onChange = jest.fn()
