@@ -33,7 +33,7 @@ export function App() {
   const [state, setState] = useState<LocalDate | null>(LocalDate.now())
   return (
     <datePickerConfig.Provider value={{
-      valueFormatter: DateTimeFormatter,
+      valueFormatter: DateTimeFormatter
       formatWeekday: (value: number) => React.ReactNode
       formatMonth: (value: LocalDate) => React.ReactNode
       formatYear: (value: LocalDate) => React.ReactNode
