@@ -5,7 +5,6 @@ import * as O from 'fp-ts/lib/Option'
 
 import { getCalendar } from './support'
 import { useDatePickerConfig } from './datepicker-config'
-import './calendar.scss'
 
 interface Props {
   value: LocalDate
@@ -33,27 +32,27 @@ export const Calendar: React.FC<Props> = (p) => {
   }
 
   return (
-    <div className="calendar__container">
-        <div className="calendar__days" data-testid="calendar__days">
+    <div className="datepicker__calendar__container">
+        <div className="datepicker__calendar__days" data-testid="datepicker__calendar__days">
           {weekdayTitles.map(x => (
-            <div className="calendar__days__title" key={x} data-testid={`calendar__days__title--${cfg.formatWeekday(x)}`}>
+            <div className="datepicker__calendar__days__title" key={x} data-testid={`datepicker__calendar__days__title--${cfg.formatWeekday(x)}`}>
               {cfg.formatWeekday(x)}
             </div>
           ))}
         </div>
-      <div data-testid="calendar__body">
+      <div data-testid="datepicker__calendar__body">
         {viewModel.map((week, weekIndex) => (
           <div
-            className={`calendar__week`}
+            className={`datepicker__calendar__week`}
             key={weekIndex}
-            data-testid="calendar__week"
+            data-testid="datepicker__calendar__week"
           >
             {week.map((maybeDate, dayIndex) => (
               <div
-                className={`calendar__day${isEqual(maybeDate, p.value) ? ' calendar__day--selected' : ''}`}
+                className={`datepicker__calendar__day${isEqual(maybeDate, p.value) ? ' datepicker__calendar__day--selected' : ''}`}
                 key={dayIndex}
                 onClick={handleClick(maybeDate)}
-                data-testid={`calendar__day--${formatDate(maybeDate)}`}
+                data-testid={`datepicker__calendar__day--${formatDate(maybeDate)}`}
               >
                 {formatDate(maybeDate)}
               </div>

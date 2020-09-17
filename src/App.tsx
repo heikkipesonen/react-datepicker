@@ -1,7 +1,9 @@
-import { DateTimeFormatter, LocalDate } from 'js-joda'
+import { LocalDate } from 'js-joda'
 import React, { useState } from 'react'
 import { WithDatepicker } from './lib'
 import { datePickerConfig } from './lib/datepicker-config'
+
+import './lib/datepicker.scss'
 
 export function App() {
   const [state, setState] = useState<LocalDate | null>(LocalDate.now())
