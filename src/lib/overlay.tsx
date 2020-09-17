@@ -12,6 +12,6 @@ export const DatePickerOverlay: React.FC<Props> = (p: Props) => {
   }
 
   return (
-    <div className="datepicker__overlay" onClick={handleAndPreventClickPropagation} data-test-id="datepicker__overlay"/>
+    <div className="datepicker__overlay" onClick={handleAndPreventClickPropagation} data-testid="datepicker__overlay"/>
 )
 }

@@ -40,7 +40,7 @@ export const DatePicker: React.FC<Props> = (p) => {
   return (
     <div className="datepicker__container">
       <DatePickerOverlay onClick={p.onClose} />
-      <div className="datepicker__inner-container" onClick={handleClick}>
+      <div className="datepicker__inner-container" onClick={handleClick} data-testid="datepicker">
         <YearSelector value={state} onChange={p.onChange} />
         <MonthSelector value={state} onChange={p.onChange} />
         <Calendar value={state} onChange={handleDayChange} />
