@@ -1,7 +1,7 @@
 import { LocalDate } from 'js-joda'
 import * as React from 'react'
 
-import { Calendar } from './calendar-view'
+import { Calendar } from './calendar'
 import { MonthSelector } from './month-selector'
 
 import './datepicker.scss'

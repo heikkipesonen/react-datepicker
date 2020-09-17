@@ -3,9 +3,9 @@ import * as React from 'react'
 import { pipe } from 'fp-ts/lib/pipeable'
 import * as O from 'fp-ts/lib/Option'
 
-import { getCalendar } from './calendar'
+import { getCalendar } from './support'
 import { useDatePickerConfig } from './datepicker-config'
-import './calendar-view.scss'
+import './calendar.scss'
 
 interface Props {
   value: LocalDate
