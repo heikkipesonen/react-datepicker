@@ -1,5 +1,6 @@
 import { DateTimeFormatter, LocalDate } from 'js-joda';
 import * as React from 'react';
+export declare const defaultFormatter: DateTimeFormatter;
 export interface DatePickerConfig {
     valueFormatter: DateTimeFormatter;
     formatWeekday: (value: number) => React.ReactNode;

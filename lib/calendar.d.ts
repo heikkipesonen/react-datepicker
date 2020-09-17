@@ -1,4 +1,8 @@
-import * as O from 'fp-ts/lib/Option';
-import { LocalDate, YearMonth } from 'js-joda';
-export declare type Calendar = O.Option<LocalDate>[][];
-export declare const getCalendar: (month: YearMonth) => Calendar;
+import { LocalDate } from 'js-joda';
+import * as React from 'react';
+interface Props {
+    value: LocalDate;
+    onChange: (x: LocalDate) => void;
+}
+export declare const Calendar: React.FC<Props>;
+export {};

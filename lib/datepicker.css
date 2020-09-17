@@ -1,112 +1,68 @@
-.datepicker__container .calendar__container {
-  table-layout: fixed;
-  border-collapse: collapse; }
-
-.datepicker__container .calendar__week, .datepicker__container .calendar__days {
-  flex-direction: row;
-  display: flex; }
-
-.datepicker__container .calendar__days__title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bolder; }
-
-.datepicker__container .calendar__day {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  height: 42px;
-  width: 42px;
-  text-align: center;
-  cursor: pointer;
-  vertical-align: middle;
-  border-radius: 50%; }
-
-.datepicker__container .calendar__day:hover {
-  background-color: #eee; }
-
-.datepicker__container .calendar__day--selected {
-  background-color: #ddd; }
-
-.datepicker__container .calendar__days__title {
-  height: 42px;
-  width: 42px;
-  text-align: center; }
-
-.datepicker-input__container {
-  position: relative; }
-
-.datepicker__container {
+.datepicker {
   position: absolute;
   z-index: 1000;
   padding: 16px;
   background-color: white;
   display: inline-block;
   box-shadow: 0px 0px 80px -20px rgba(0, 0, 0, 0.3); }
-
-.datepicker__inner-container {
-  position: relative;
-  z-index: 1; }
-
-.calendar__monthselector__container {
-  display: flex;
-  flex-direction: row; }
-
-.calendar__monthselector__display {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.calendar__monthselector__control--prev, .calendar__monthselector__control--next {
-  background-color: transparent;
-  border: none;
-  width: 42px;
-  height: 42px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.calendar__monthselector__control--prev:hover, .calendar__monthselector__control--next:hover {
-  background-color: #eee; }
-
-.calendar__monthselector__control--prev:focus, .calendar__monthselector__control--next:focus {
-  outline: none;
-  border: none; }
-
-.calendar__yearselector__container {
-  display: flex;
-  flex-direction: row; }
-
-.calendar__yearselector__display {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.calendar__yearselector__control--prev, .calendar__yearselector__control--next {
-  background-color: transparent;
-  border: none;
-  width: 42px;
-  height: 42px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.calendar__yearselector__control--prev:hover, .calendar__yearselector__control--next:hover {
-  background-color: #eee; }
-
-.calendar__yearselector__control--prev:focus, .calendar__yearselector__control--next:focus {
-  outline: none;
-  border: none; }
-
-.datepicker__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; }
+  .datepicker__inner-container {
+    position: relative;
+    z-index: 1; }
+  .datepicker__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+  .datepicker__calendar__container {
+    table-layout: fixed;
+    border-collapse: collapse; }
+  .datepicker__calendar__week, .datepicker__calendar__days {
+    flex-direction: row;
+    display: flex; }
+  .datepicker__calendar__days__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder; }
+  .datepicker__calendar__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 42px;
+    width: 42px;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 50%; }
+    .datepicker__calendar__day:hover {
+      background-color: #eee; }
+    .datepicker__calendar__day--selected {
+      background-color: #ddd; }
+  .datepicker__calendar__days__title {
+    height: 42px;
+    width: 42px;
+    text-align: center; }
+  .datepicker__monthselector__container, .datepicker__yearselector__container {
+    display: flex;
+    flex-direction: row; }
+  .datepicker__monthselector__display, .datepicker__yearselector__display {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .datepicker__monthselector__control, .datepicker__yearselector__control {
+    background-color: transparent;
+    border: none;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .datepicker__monthselector__control:hover, .datepicker__yearselector__control:hover {
+      background-color: #eee; }
+    .datepicker__monthselector__control:focus, .datepicker__yearselector__control:focus {
+      outline: none;
+      border: none; }
