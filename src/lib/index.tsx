@@ -1,3 +1,3 @@
 export * from './datepicker-config'
-export * from './date-input'
 export * from './datepicker'
+export * from  './with-datepicker'
