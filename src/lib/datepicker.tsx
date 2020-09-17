@@ -36,8 +36,13 @@ export const DatePicker: React.FC<Props> = (p) => {
     }
   }
 
+  const handleMouseDown = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation()
+    e.preventDefault()
+  }
+
   return (
-    <div className="datepicker">
+    <div className="datepicker" onMouseDown={handleMouseDown}>
       <DatePickerOverlay onClick={p.onClose} />
       <div className="datepicker__inner-container" onClick={handleClick} data-testid="datepicker">
         <YearSelector value={state} onChange={p.onChange} />

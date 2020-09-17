@@ -57,6 +57,7 @@ export const WithDatepicker: React.FC<WithDatepickerProps> = (p: WithDatepickerP
       O.getOrElse(() => p.value)
     )
 
+    setFocused(false)
     p.onChange(displayValue)
     setInputValue(getFormattedValue(displayValue, cfg.valueFormatter))
   }
