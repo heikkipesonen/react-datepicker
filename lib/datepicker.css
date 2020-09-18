@@ -8,12 +8,6 @@
   .datepicker__inner-container {
     position: relative;
     z-index: 1; }
-  .datepicker__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0; }
   .datepicker__calendar__container {
     table-layout: fixed;
     border-collapse: collapse; }

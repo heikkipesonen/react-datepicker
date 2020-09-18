@@ -5,7 +5,6 @@ import { Calendar } from './calendar'
 import { MonthSelector } from './month-selector'
 
 import { YearSelector } from './year-selector'
-import { DatePickerOverlay } from './overlay'
 import { useDatePickerConfig } from './datepicker-config'
 
 interface Props {
@@ -43,7 +42,6 @@ export const DatePicker: React.FC<Props> = (p) => {
 
   return (
     <div className="datepicker" onMouseDown={handleMouseDown}>
-      <DatePickerOverlay onClick={p.onClose} />
       <div className="datepicker__inner-container" onClick={handleClick} data-testid="datepicker">
         <YearSelector value={state} onChange={p.onChange} />
         <MonthSelector value={state} onChange={p.onChange} />
