@@ -35,6 +35,7 @@ interface InputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   onFocus: (e: React.FocusEvent<HTMLInputElement>) => void
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void
+  onClick: (e: React.MouseEvent<HTMLInputElement>) => void
 }
 
 const getFormattedValue = (x: LocalDate | null, formatter: DateTimeFormatter) => pipe(
@@ -65,6 +66,7 @@ export const WithDatepicker: React.FC<WithDatepickerProps> = (p: WithDatepickerP
     setInputValue(getFormattedValue(displayValue, cfg.valueFormatter))
   }
 
+  const handleInputClick = () => setFocused(true)
   const handleInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     if (p.onFocus){ p.onFocus(e) }
     setFocused(true)
@@ -77,6 +79,7 @@ export const WithDatepicker: React.FC<WithDatepickerProps> = (p: WithDatepickerP
 
   const inputProps: InputProps = {
     value: inputValue,
+    onClick: handleInputClick,
     onBlur: handleInputBlur,
     onFocus: handleInputFocus,
     onChange: handleInputChange

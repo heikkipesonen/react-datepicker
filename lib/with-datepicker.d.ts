@@ -12,6 +12,7 @@ interface InputProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onFocus: (e: React.FocusEvent<HTMLInputElement>) => void;
     onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
+    onClick: (e: React.MouseEvent<HTMLInputElement>) => void;
 }
 export declare const WithDatepicker: React.FC<WithDatepickerProps>;
 export {};
