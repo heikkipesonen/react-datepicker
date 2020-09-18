@@ -26,6 +26,8 @@ interface WithDatepickerProps {
   value: LocalDate | null
   onChange: (value: LocalDate | null) => void,
   children: (props: InputProps) => React.ReactNode
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
 interface InputProps {
@@ -50,19 +52,23 @@ export const WithDatepicker: React.FC<WithDatepickerProps> = (p: WithDatepickerP
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setInputValue(e.target.value)
 
-  const handleInputBlur = () => {
+  const handleInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const displayValue = pipe(
       inputValue,
       parseValue(cfg.valueFormatter),
       O.getOrElse(() => p.value)
     )
 
+    if (p.onBlur) { p.onBlur(e) }
     setFocused(false)
     p.onChange(displayValue)
     setInputValue(getFormattedValue(displayValue, cfg.valueFormatter))
   }
 
-  const handleInputFocus = () => setFocused(true)
+  const handleInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (p.onFocus){ p.onFocus(e) }
+    setFocused(true)
+  }
   const handleDatepickerClose = () => setFocused(false)
 
   React.useEffect(() => {

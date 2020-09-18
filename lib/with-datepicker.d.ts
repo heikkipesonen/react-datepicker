@@ -4,6 +4,8 @@ interface WithDatepickerProps {
     value: LocalDate | null;
     onChange: (value: LocalDate | null) => void;
     children: (props: InputProps) => React.ReactNode;
+    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+    onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 interface InputProps {
     value: string;
