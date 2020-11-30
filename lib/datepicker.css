@@ -2,9 +2,10 @@
   position: absolute;
   z-index: 1000;
   padding: 16px;
-  background-color: white;
   display: inline-block;
-  box-shadow: 0px 0px 80px -20px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0px 0px 80px -20px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  border: 1px solid #d00; }
   .datepicker__inner-container {
     position: relative;
     z-index: 1; }
@@ -31,9 +32,9 @@
     vertical-align: middle;
     border-radius: 50%; }
     .datepicker__calendar__day:hover {
-      background-color: #eee; }
+      background-color: #d00; }
     .datepicker__calendar__day--selected {
-      background-color: #ddd; }
+      border: 2px solid #d00; }
   .datepicker__calendar__days__title {
     height: 42px;
     width: 42px;
@@ -54,9 +55,10 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    border-radius: 50%; }
     .datepicker__monthselector__control:hover, .datepicker__yearselector__control:hover {
-      background-color: #eee; }
+      background-color: #d00; }
     .datepicker__monthselector__control:focus, .datepicker__yearselector__control:focus {
       outline: none;
       border: none; }

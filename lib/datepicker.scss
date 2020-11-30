@@ -1,12 +1,17 @@
+$datepicker-color-focused: #d00 !default;
+$datepicker-color-hover: #d00 !default;
+$datepicker-control-color-hover: #d00 !default;
+$datepicker-border: 1px solid #d00 !default;
+
 .datepicker {
   position: absolute;
   z-index: 1000;
-
   padding: 16px;
-  background-color: white;
-
   display: inline-block;
   box-shadow: 0px 0px 80px -20px rgba(0, 0, 0, 0.3);
+
+  background-color: white;
+  border: $datepicker-border;
 
   &__inner-container {
     position: relative;
@@ -30,7 +35,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
         font-weight: bolder;
       }
     }
@@ -49,11 +53,11 @@
       border-radius: 50%;
 
       &:hover {
-        background-color: #eee;
+        background-color: $datepicker-color-hover;
       }
 
       &--selected {
-        background-color: #ddd;
+        border: 2px solid $datepicker-color-focused;
       }
     }
 
@@ -87,9 +91,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 50%;
 
         &:hover {
-          background-color: #eee;
+          background-color: $datepicker-control-color-hover;
         }
 
         &:focus {
