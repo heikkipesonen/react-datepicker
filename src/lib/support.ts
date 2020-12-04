@@ -7,19 +7,21 @@ const createWeek = (): O.Option<LocalDate>[] => Array(7)
 
 export type Calendar = O.Option<LocalDate>[][]
 export const getCalendar = (month: YearMonth): Calendar  => {
-  const r: Record<string, O.Option<LocalDate>[]> = {}
+  const r: O.Option<LocalDate>[][] = [createWeek()]
   const days = month.lengthOfMonth()
 
   Array(days)
     .fill(false)
     .map((_, index) => LocalDate.of(month.year(), month.month(), index + 1))
     .forEach(x => {
-      const weekNumber = x.isoWeekOfWeekyear()
-      if (!r[weekNumber]) {
-        r[weekNumber] = createWeek()
+      const d = x.dayOfWeek().value()
+
+      if (O.isSome(r[r.length-1][6])) {
+        r.push(createWeek())
       }
-      r[weekNumber][x.dayOfWeek().value() - 1] = O.some(x)
+
+      r[r.length - 1][d - 1] = O.some(x)
     })
 
-  return Object.keys(r).map(key => r[key])
+  return r
 }
