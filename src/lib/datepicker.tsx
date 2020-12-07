@@ -29,11 +29,14 @@ export const DatePicker: React.FC<Props> = (p) => {
   }
 
   const handleDayChange = (x: LocalDate) => {
-    p.onChange(x)
+    handleChange(x)
     if (config.closeAfterClick) {
       p.onClose()
     }
   }
+
+  const handleChange = (x: LocalDate) =>
+    p.onChange(x)
 
   const handleMouseDown = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation()
@@ -43,8 +46,8 @@ export const DatePicker: React.FC<Props> = (p) => {
   return (
     <div className="datepicker" onMouseDown={handleMouseDown}>
       <div className="datepicker__inner-container" onClick={handleClick} data-testid="datepicker">
-        <YearSelector value={state} onChange={p.onChange} />
-        <MonthSelector value={state} onChange={p.onChange} />
+        <YearSelector value={state} onChange={handleChange} />
+        <MonthSelector value={state} onChange={handleChange} />
         <Calendar value={state} onChange={handleDayChange} />
       </div>
     </div>
