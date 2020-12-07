@@ -13,7 +13,6 @@ export class Datepicker {
   }
 
   public field = () => this.ctx.getByTestId('field')
-  public overlay = () => this.ctx.getByTestId('datepicker__overlay')
   public focusInput = () => userEvent.click(this.field())
 
   public datepicker = () => this.ctx.getByTestId('datepicker')
