@@ -48,12 +48,14 @@ $datepicker-border: 1px solid #d00 !default;
       height: 42px;
       width: 42px;
       text-align: center;
-      cursor: pointer;
       vertical-align: middle;
       border-radius: 50%;
 
-      &:hover {
-        background-color: $datepicker-color-hover;
+      &:not(.datepicker__calendar__day--disabled) {
+        cursor: pointer;
+        &:hover {
+          background-color: $datepicker-color-hover;
+        }
       }
 
       &--selected {

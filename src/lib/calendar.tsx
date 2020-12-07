@@ -2,6 +2,7 @@ import { LocalDate, YearMonth } from 'js-joda'
 import * as React from 'react'
 import { pipe } from 'fp-ts/lib/pipeable'
 import * as O from 'fp-ts/lib/Option'
+import classnames from 'classnames'
 
 import { getCalendar } from './support'
 import { useDatePickerConfig } from './datepicker-config'
@@ -49,7 +50,12 @@ export const Calendar: React.FC<Props> = (p) => {
           >
             {week.map((maybeDate, dayIndex) => (
               <div
-                className={`datepicker__calendar__day${isEqual(maybeDate, p.value) ? ' datepicker__calendar__day--selected' : ''}`}
+                className={
+                  classnames('datepicker__calendar__day',{
+                    'datepicker__calendar__day--selected': isEqual(maybeDate, p.value),
+                    'datepicker__calendar__day--disabled': O.isNone(maybeDate),
+                  })
+                }
                 key={dayIndex}
                 onClick={handleClick(maybeDate)}
                 data-testid={`datepicker__calendar__day--${formatDate(maybeDate)}`}
