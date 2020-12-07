@@ -28,11 +28,12 @@
     height: 42px;
     width: 42px;
     text-align: center;
-    cursor: pointer;
     vertical-align: middle;
     border-radius: 50%; }
-    .datepicker__calendar__day:hover {
-      background-color: #d00; }
+    .datepicker__calendar__day:not(.datepicker__calendar__day--disabled) {
+      cursor: pointer; }
+      .datepicker__calendar__day:not(.datepicker__calendar__day--disabled):hover {
+        background-color: #d00; }
     .datepicker__calendar__day--selected {
       border: 2px solid #d00; }
   .datepicker__calendar__days__title {
