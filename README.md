@@ -3,7 +3,7 @@
 ### A datepicker that does not have features!
 
 - why?
-because all other datepickers are written with fukken cobol and php with a touch of jquery wrapped within react container and offer a features ranging from selecting space ships to drawing furries...
+because all other datepickers are written with cobol and php with a touch of jquery wrapped within react container and offer a features ranging from selecting space ships to drawing furries...
 - datepicker should only pick some dates
 
 ![OH WOW](./img.png)
