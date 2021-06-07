@@ -8,7 +8,7 @@ because all other datepickers are written with cobol and php with a touch of jqu
 
 ![OH WOW](./img.png)
 
-Uses `js-joda` for date models, because it fokken works. want js Dates? - do it yourself, use some state, some imagination and covert, whos gonna stop you...
+Uses `js-joda` for date models, because it works.
 
 - Takes in a `LocalDate | null`, Outputs `LocalDate | null` how extraordinarily revolutional is that?
 - One job, and one job only, select dates, how hard is that?
