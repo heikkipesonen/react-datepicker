@@ -3,12 +3,12 @@
 ### A datepicker that does not have features!
 
 - why?
-because all other datepickers are written with cobol and php with a touch of jquery wrapped within react container and offer a features ranging from selecting space ships to drawing furries...
+because all other datepickers are questionable and this is opionated
 - datepicker should only pick some dates
 
 ![OH WOW](./img.png)
 
-Uses `js-joda` for date models, because it works.
+Uses `js-joda` for date models, because it works. it should work on strings only. actually.
 
 - Takes in a `LocalDate | null`, Outputs `LocalDate | null` how extraordinarily revolutional is that?
 - One job, and one job only, select dates, how hard is that?
